@@ -1,0 +1,15 @@
+networks:
+  my-network:
+services:
+  mockexternalapi:
+    image: node:22
+    container_name: mockexternalapi
+    working_dir: /src
+    volumes:
+      - ./:/src
+    ports:
+      - "3001:3001"
+    command: bash -c "npm install && npm run dev"
+
+volumes:
+  mockexternalapi:
